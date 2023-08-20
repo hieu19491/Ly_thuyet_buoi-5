@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="topbackgroup">
+    <img class="tophead"
+         src="https://lh3.googleusercontent.com/LtjGwbhHM_F5heGgtnhwjGpEyI_PSc80fwH5s29HfJtnIGVimrKalmuMvrvkAUS_1MV3dK_9BGFF_-g2nkUpQFsn1o32unIM=w1920-rw"
+         alt="">
+    <table class="link">
+        <tr>
+            <th style="width: 700px"></th>
+            <th><a href="He_thong.html" style="color: white">Hệ thống cửa hàng</a></th>
+            <th><a href="Chính%20sách%20giao%20hàng.html">Chính sách giao hàng</a></th>
+            <th><a href="Chính%20sách%20đổi%20trả.html">Chính sách đổi trả</a></th>
+            <th>Hotline: 1900 63 63 26</th>
+            <th style="width: 200px"></th>
+        </tr>
+    </table>
+
+    <table class="toolbar">
+        <tr>
+            <th style="width: 500px"></th>
+            <th><img style="width: 150px" src="https://shopfront-cdn.tekoapis.com/static/soibien/logo_full.png" alt="">
+            </th>
+            <td style="width: 500px">
+                <input style="width: 520px;height: 30px; border-radius: 4px; border: 1px; background: #eeecec; padding: 5px "
+                       type="text" id="search"
+                       placeholder="Nhập từ khóa cần tìm">
+            </td>
+            <td>
+                <button class="btn"
+                        onclick="searchProduct()"
+                        onmouseenter="this.style.backgroundColor='#b2afaf'"
+                        onmouseleave="this.style.backgroundColor='#eeecec'"
+                        title="Search">
+                    <img class="img-btn" src="https://icons.iconarchive.com/icons/github/octicons/128/search-24-icon.png" alt="">
+                </button>
+            </td>
+            <td>
+                <button class="btn "
+                        onclick="showFormAdd()"
+                        onmouseenter="this.style.backgroundColor='#b2afaf'"
+                        onmouseleave="this.style.backgroundColor='#eeecec'"
+                        title="Add new product">
+                    <img class="img-btn" src="https://icons.iconarchive.com/icons/ionic/ionicons/128/add-outline-icon.png" alt="">
+                </button>
+            </td>
+            <th style="width: 500px"></th>
+        </tr>
+    </table>
+</div>
+
+<!--Show form add-->
+<div id="modal-container">
+    <div id="form-add">
+        <div class="modal-header">
+            <h2>Add Product</h2>
+        </div>
+        <div class="modal-body">
+            <table>
+                <tr>
+                    <td>ID:</td>
+                    <td><input type="number" id="id"></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td>Img:</td>
+                    <td><input type="text" id="img"></td>
+                </tr>
+                <tr>
+                    <td>Quatity:</td>
+                    <td><input type="number" id="quatity"></td>
+                </tr>
+                <tr>
+                    <td>Unit:</td>
+                    <td><input type="text" id="unit"></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><input type="number" id="price"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" onclick="add()">
+                        <button id="btn-add"
+                                style="width: 100px; background: rgba(0, 101, 69); color: #eeecec;border: none; border-radius: 4px;cursor: pointer"
+                                onmouseenter="this.style.backgroundColor='#03481b'"
+                                onmouseleave="this.style.backgroundColor='#006545FF'">Add
+                        </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <button style="width: 100px; background: rgba(0, 101, 69); color: #eeecec;border: none; border-radius: 4px; cursor: pointer"
+                                id="btn-cancle"
+                                onmouseenter="this.style.backgroundColor='#03481b'"
+                                onmouseleave="this.style.backgroundColor='#006545FF'">Cancel
+                        </button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!--Show form edit-->
+<div id="modal-edit">
+    <div id="form-edit">
+        <div class="modal-header">
+            <h2>Edit Product</h2>
+        </div>
+        <div class="modal-body">
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td><input type="number" id="id1"></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" id="name1"></td>
+                </tr>
+                <tr>
+                    <td>IMG</td>
+                    <td id="img1"></td>
+                </tr>
+                <tr>
+                    <td>Quatity</td>
+                    <td><input type="number" id="quatity1"></td>
+                </tr>
+                <tr>
+                    <td>Unit</td>
+                    <td><input type="text" id="unit1"></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="number" id="price1"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" onclick="edit()">
+                        <button style="width: 100px; background: rgba(0, 101, 69); color: #eeecec;border: none; border-radius: 4px; cursor: pointer"
+                                onmouseenter="this.style.backgroundColor='#03481b'"
+                                onmouseleave="this.style.backgroundColor='#006545FF'">Save
+                        </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <button style="width: 100px; background: rgba(0, 101, 69); color: #eeecec;border: none; border-radius: 4px; cursor: pointer"
+                                id="btn-cancle1"
+                                onmouseenter="this.style.backgroundColor='#03481b'"
+                                onmouseleave="this.style.backgroundColor='#006545FF'">Cancel
+                        </button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="wrapper"> <!--Thanh công cụ-->
+    <div id="slideleft"></div>
+    <div id="product" border="1" style="border: 6px; border-radius: 16px; color: green"></div>
+    <div id="slideright"></div>
+</div>
+
+<!--<script>-->
+<!--    localStorage.setItem("listProduct",JSON.stringify([]));-->
+<!--</script>-->
+
+
+<script src="Entity/Product.js"></script>
+<script src="Manager/Store.js"></script>
+<script src="View/Main.js"></script>
+</body>
+</html>
+
